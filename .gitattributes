@@ -1,0 +1,23 @@
+# 用于消除 git add 时的 warning
+# warning: LF will be replaced by CRLF the next time Git touches it
+# 将 window 系统中的以下类型的文本文件行尾序列指定为 LF
+# 即此文件会覆盖 window 系统中 git 的 autocrlf 设置
+
+*.js        text eol=lf
+*.cjs       text eol=lf
+*.jsm       text eol=lf
+*.jsx       text eol=lf
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.json      text eol=lf
+*.css       text eol=lf
+*.html      text eol=lf
+*.md        text eol=lf
+*.vue       text eol=lf
+
+*.gitignore       text eol=lf
+*.gitattributes   text eol=lf
+*.eslintignore    text eol=lf
+*.prettierignore  text eol=lf
+*.stylelintignore text eol=lf
+*.editorconfig    text eol=lf
