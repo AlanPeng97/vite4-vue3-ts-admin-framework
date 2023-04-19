@@ -6,6 +6,7 @@ module.exports = {
 	ignores: [(commit) => commit.includes("init")],
 	rules: {
 		// @see: https://commitlint.js.org/#/reference-rules
+		"subject-empty": [2, "never"],
 	},
 	prompt: {
 		messages: {
