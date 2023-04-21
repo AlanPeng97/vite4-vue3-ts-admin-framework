@@ -15,14 +15,14 @@ let dynamicHomeRouter = [
 		path: "/",
 		redirect: "",
 	},
-	// {
-	// 	path: "/layout",
-	// 	name: "layout",
-	// 	component: () => import("@/layouts/index.vue"),
-	// 	// component: () => import("@/layouts/indexAsync.vue"),
-	// 	redirect: "",
-	// 	children: [],
-	// },
+	{
+		path: "/layout",
+		name: "layout",
+		component: () => import("@/layouts/index.vue"),
+		// component: () => import("@/layouts/indexAsync.vue"),
+		redirect: "",
+		children: [],
+	},
 ];
 
 export const initDynamicRouter = async () => {
@@ -33,7 +33,7 @@ export const initDynamicRouter = async () => {
 
 		// ** 动态主页
 		let HOME_URL = authStore.authMenuListGet[0].path;
-		console.log(HOME_URL);
+		// console.log(HOME_URL);
 		dynamicHomeRouter.forEach((item) => {
 			item.redirect = HOME_URL;
 			router.addRoute(item);
@@ -51,13 +51,12 @@ export const initDynamicRouter = async () => {
 			if (item.component && isType(item.component) == "string") {
 				item.component = modules["/src/views" + item.component + ".vue"];
 			}
-			// if (item.meta.isFull) {
-			console.log(item);
-			router.addRoute(item);
-			// }
-			//  else {
-			// 	router.addRoute("layout", item);
-			// }
+			if (item.meta.isFull) {
+				// console.log(item);
+				router.addRoute(item);
+			} else {
+				router.addRoute("layout", item);
+			}
 		});
 		console.log(router.getRoutes());
 	} catch (error) {

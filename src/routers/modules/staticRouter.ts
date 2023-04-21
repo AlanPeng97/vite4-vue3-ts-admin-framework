@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-// import { HOME_URL } from "@/config/config";
+import { LOGIN_URL } from "@/config/config";
 
 /**
  *@description staticRouter（静态路由）
@@ -12,6 +12,14 @@ export const staticRouter: RouteRecordRaw[] = [
 	// 	redirect: HOME_URL, // 默认首页 可自定义
 	// },
 	// ** 无需登录的路由
+	{
+		path: LOGIN_URL,
+		name: "login",
+		component: () => import("@/views/login/index.vue"),
+		meta: {
+			title: "登录",
+		},
+	},
 ];
 
 // ** errorRouter(错误页面路由)

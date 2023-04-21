@@ -23,10 +23,11 @@ export default defineConfig(({ mode }) => {
 			port: viteEnv.VITE_PORT,
 			open: viteEnv.VITE_OPEN,
 			proxy: {
-				// "/api": {
-				//   target: "http://172.16.1.44:35021/api/system/",
-				//   rewrite: (path) => path.replace(/^\/api/, ""),
-				// },
+				"/api": {
+					target: "https://mock.mengxuegu.com/mock/6440dd19dfa03133b0ca78d4/vite4.0-vue3-ts-admin-framework",
+					changeOrigin: true, // 跨域需要设置
+					rewrite: (path) => path.replace(/^\/api/, ""),
+				},
 			},
 		},
 		plugins: [
