@@ -13,6 +13,7 @@ const modules = import.meta.glob("@/views/**/*.vue");
 let dynamicHomeRouter = [
 	{
 		path: "/",
+		name: "default",
 		redirect: "",
 	},
 	{

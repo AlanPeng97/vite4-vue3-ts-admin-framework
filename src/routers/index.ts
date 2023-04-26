@@ -62,6 +62,8 @@ export const resetRouter = () => {
 	authStore.flatMenuListGet.forEach((route) => {
 		const { name } = route;
 		if (name && router.hasRoute(name)) router.removeRoute(name);
+		router.removeRoute("default");
+		router.removeRoute("layout");
 	});
 };
 export default router;
